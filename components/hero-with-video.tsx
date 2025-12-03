@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown } from 'lucide-react';
 import { PricingModal } from './ui/pricing-modal';
-import { ToggleTheme } from '../toggle-theme';
+import { ToggleTheme } from './toggle-theme';
 
 interface NavbarHeroProps {
   brandName?: string;
