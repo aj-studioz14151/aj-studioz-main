@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import ProjectCard from "@/components/project-card";
+import { BookProjectsModal } from "@/components/book-projects-modal";
 import { ExternalLink } from "lucide-react";
 
 interface Project {
@@ -87,6 +88,9 @@ export default function ProjectsPage() {
             Explore our diverse portfolio of innovative web applications, tools, and AI-powered solutions 
             that showcase our expertise across various domains.
           </p>
+          <div className="mt-8 flex justify-center">
+            <BookProjectsModal />
+          </div>
         </div>
       </div>
 
@@ -144,6 +148,16 @@ export default function ProjectsPage() {
                   <div className="text-4xl font-bold text-primary mb-2">100%</div>
                   <p className="text-muted-foreground">Client Satisfaction</p>
                 </div>
+              </div>
+              
+              {/* Call to Action */}
+              <div className="mt-16 text-center">
+                <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
+                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Let's discuss how we can bring your vision to life. Our expert team is ready to create 
+                  innovative solutions tailored to your specific needs.
+                </p>
+                <BookProjectsModal />
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown } from 'lucide-react';
 
 import { ToggleTheme } from './toggle-theme';
+import { BookProjectsModal } from './book-projects-modal';
 
 interface NavbarHeroProps {
   brandName?: string;
@@ -157,6 +158,9 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
               <a href="/signup" className="bg-foreground hover:bg-muted-foreground text-background px-5 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-full normal-case font-medium transition-colors flex items-center gap-2">
                 Join Now<ArrowRight className="h-4 w-4" />
               </a>
+            </div>
+            <div className="mt-6 flex justify-center">
+              <BookProjectsModal />
             </div>
           </div>
         </div>
