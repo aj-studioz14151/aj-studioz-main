@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown } from 'lucide-react';
-import { PricingModal } from './ui/pricing-modal';
+
 import { ToggleTheme } from './toggle-theme';
 
 interface NavbarHeroProps {
@@ -30,7 +30,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoPaused, setIsVideoPaused] = useState(false);
-  const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -101,7 +101,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
                   )}
                 </li>
                 <li><a href="#" className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Blog</a></li>
-                <li><button onClick={() => setIsPricingModalOpen(true)} className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Plans & Pricing</button></li>
+                <li><a href="/pricing" className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Plans & Pricing</a></li>
               </ul>
             </nav>
           </div>
@@ -129,7 +129,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
                       <li><a href="#" className="block px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg">Submenu 2</a></li>
                   </ul>)}</li>
                   <li><a href="#" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Blog</a></li>
-                  <li><button onClick={() => setIsPricingModalOpen(true)} className="block w-full text-left px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Plans & Pricing</button></li>
+                  <li><a href="/pricing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Plans & Pricing</a></li>
                   <li className="border-t border-border mt-2 pt-2 space-y-2">
                     <a href="/signin" className="block w-full text-center px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Login</a>
                     <a href="/signup" className="w-full bg-foreground text-background hover:bg-muted-foreground px-3 py-2.5 text-sm rounded-lg flex items-center justify-center gap-2 font-medium">
@@ -177,11 +177,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
         </header>
       </div>
       
-      {/* Pricing Modal */}
-      <PricingModal 
-        isOpen={isPricingModalOpen} 
-        onClose={() => setIsPricingModalOpen(false)} 
-      />
+
     </main>
   );
 };
