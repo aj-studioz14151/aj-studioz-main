@@ -102,7 +102,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
                     </ul>
                   )}
                 </li>
-                <li><a href="#" className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Blog</a></li>
+                <li><a href="/blog" className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Blog</a></li>
                 <li><a href="/pricing" className="hover:text-foreground px-3 py-2 text-sm transition-colors rounded-lg">Plans & Pricing</a></li>
               </ul>
             </nav>
@@ -131,7 +131,7 @@ const NavbarHero: React.FC<NavbarHeroProps> = ({
                       <li><a href="#" className="block px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg">Documentation</a></li>
                       <li><a href="#" className="block px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg">API Reference</a></li>
                   </ul>)}</li>
-                  <li><a href="#" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Blog</a></li>
+                  <li><a href="/blog" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Blog</a></li>
                   <li><a href="/pricing" className="block px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Plans & Pricing</a></li>
                   <li className="border-t border-border mt-2 pt-2 space-y-2">
                     <a href="/signin" className="block w-full text-center px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg">Login</a>
