@@ -79,21 +79,21 @@ const ProjectImage = ({ images, title }: { images: string | string[], title: str
 const getCategoryIcon = (category: string) => {
   switch (category) {
     case "AI Development Tool":
-      return <Code className="w-5 h-5" />;
+      return <Code className="w-4 h-4" />;
     case "AI Email Assistant":
-      return <Mail className="w-5 h-5" />;
+      return <Mail className="w-4 h-4" />;
     case "AI Chat":
-      return <MessageSquare className="w-5 h-5" />;
+      return <MessageSquare className="w-4 h-4" />;
     case "AI Research Tool":
-      return <Search className="w-5 h-5" />;
+      return <Search className="w-4 h-4" />;
     case "Staff Portal":
-      return <Users className="w-5 h-5" />;
+      return <Users className="w-4 h-4" />;
     case "Education Platform":
-      return <GraduationCap className="w-5 h-5" />;
+      return <GraduationCap className="w-4 h-4" />;
     case "Developer Tool":
-      return <Terminal className="w-5 h-5" />;
+      return <Terminal className="w-4 h-4" />;
     default:
-      return <Code className="w-5 h-5" />;
+      return <Code className="w-4 h-4" />;
   }
 };
 
@@ -109,46 +109,46 @@ export default function TomoProjectCard({ project, index }: TomoProjectCardProps
       style={{ animationDelay: `${index * 150}ms` }}
     >
       {/* Image Container */}
-      <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
         <ProjectImage images={project.image} title={project.title} />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
         
         {/* Category Badge */}
-        <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full shadow-lg">
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full shadow-lg">
           {getCategoryIcon(project.category)}
-          <span className="text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider">
+          <span className="text-[10px] font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider">
             {project.category}
           </span>
         </div>
       </div>
 
       {/* Content Container */}
-      <div className="p-6 flex flex-col h-[calc(100%-14rem)]">
+      <div className="p-5 flex flex-col h-[calc(100%-12rem)]">
         {/* Title */}
-        <h3 className="font-serif text-2xl text-gray-900 dark:text-white mb-3 group-hover:text-[#C5A059] transition-colors duration-300">
+        <h3 className="font-serif text-xl text-gray-900 dark:text-white mb-2 group-hover:text-[#C5A059] transition-colors duration-300 line-clamp-2">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 line-clamp-3">
+        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">
           {project.description}
         </p>
 
         {/* Features List */}
-        <div className="mb-6 flex-grow">
-          <h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-3">
+        <div className="mb-4 flex-grow">
+          <h4 className="text-[10px] font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
             Key Features
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-1.5">
             {project.features.slice(0, 3).map((feature, idx) => (
-              <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-400">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-1.5 mr-2 flex-shrink-0"></span>
-                <span className="line-clamp-2">{feature}</span>
+              <li key={idx} className="flex items-start text-[11px] text-gray-600 dark:text-gray-400">
+                <span className="inline-block w-1 h-1 rounded-full bg-[#C5A059] mt-1.5 mr-2 flex-shrink-0"></span>
+                <span className="line-clamp-1">{feature.split(':')[0]}</span>
               </li>
             ))}
             {project.features.length > 3 && (
-              <li className="text-xs text-gray-500 dark:text-gray-500 italic pl-3.5">
-                +{project.features.length - 3} more features
+              <li className="text-[10px] text-gray-500 dark:text-gray-500 italic pl-3">
+                +{project.features.length - 3} more
               </li>
             )}
           </ul>
@@ -160,15 +160,15 @@ export default function TomoProjectCard({ project, index }: TomoProjectCardProps
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-xl group/btn"
+            className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-xl group/btn"
           >
-            <span className="font-medium text-sm tracking-wide">Visit</span>
-            <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+            <span className="font-medium text-xs tracking-wide">Visit</span>
+            <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
           </a>
         ) : (
-          <div className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-xl cursor-not-allowed">
-            <span className="font-medium text-sm tracking-wide">Internal Use Only</span>
-            <Users className="w-4 h-4" />
+          <div className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-lg cursor-not-allowed">
+            <span className="font-medium text-xs tracking-wide">Internal Use Only</span>
+            <Users className="w-3.5 h-3.5" />
           </div>
         )}
       </div>

@@ -150,6 +150,23 @@ const projects: Project[] = [
       "API Testing: Efficient debugging tool for developers",
       "Professional Interface: Clean, intuitive command testing environment"
     ]
+  },
+  {
+    id: 10,
+    title: "MEOW CHAT - Free AI Chat with Multiple Models",
+    description: "MEOW CHAT by AJ STUDIOZ is a free AI chat platform supporting multiple models for engaging conversations focused on summaries, code generation, design ideas, research, inspiration, deep thinking, and gentle learning.",
+    image: "/meowchat-ajstudioz-co-in-1024x768desktop-ebe418.png",
+    link: "https://www.meowchat.ajstudioz.co.in/",
+    category: "AI Chat",
+    features: [
+      "Summary: Condense information efficiently",
+      "Code: Generate or assist with programming",
+      "Design: Creative design prompts and ideas",
+      "Research: In-depth topic exploration",
+      "Inspiration: Creative thinking and ideation",
+      "Deep Thinking: Complex problem analysis",
+      "Gentle Learning: Educational conversations"
+    ]
   }
 ];
 
@@ -225,7 +242,7 @@ export default function ProjectsPage() {
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-[#C5A059] mb-2">9</div>
+                  <div className="text-4xl font-bold text-[#C5A059] mb-2">10</div>
                   <p className="text-muted-foreground">TOMO Products</p>
                 </div>
                 <div className="text-center">
