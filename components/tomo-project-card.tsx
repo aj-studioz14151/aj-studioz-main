@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ExternalLink, Code, Mail, Users, MessageSquare, Search } from 'lucide-react'
+import { ExternalLink, Code, Mail, Users, MessageSquare, Search, GraduationCap, Terminal } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 
@@ -88,6 +88,10 @@ const getCategoryIcon = (category: string) => {
       return <Search className="w-5 h-5" />;
     case "Staff Portal":
       return <Users className="w-5 h-5" />;
+    case "Education Platform":
+      return <GraduationCap className="w-5 h-5" />;
+    case "Developer Tool":
+      return <Terminal className="w-5 h-5" />;
     default:
       return <Code className="w-5 h-5" />;
   }

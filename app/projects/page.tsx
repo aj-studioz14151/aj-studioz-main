@@ -103,6 +103,53 @@ const projects: Project[] = [
       "Component Export: Generate production-ready React components",
       "Live Preview: Instant visualization of generated components"
     ]
+  },
+  {
+    id: 7,
+    title: "AJ STUDIOZ - AI-Powered Research & Search Engine",
+    description: "AJ STUDIOZ serves as an intelligent AI research companion, delivering a fast, accurate, and powerful search engine tailored for all research requirements.",
+    image: "/meow-ajstudioz-co-in-1024x768desktop-052090 (1).png",
+    link: "https://www.meow.ajstudioz.co.in/",
+    category: "AI Research Tool",
+    features: [
+      "Fast Search: Lightning-fast AI-driven search engine",
+      "Accurate Results: Precision-focused research companion",
+      "Research Optimization: Tailored for comprehensive research tasks",
+      "AI Intelligence: Advanced algorithms for relevant findings",
+      "Universal Research: Supports diverse research domains"
+    ]
+  },
+  {
+    id: 8,
+    title: "TOMO ACADEMY Website",
+    description: "TOMO ACADEMY is a beginner-friendly educational platform offering free, step-by-step tutorials in C programming, probability & statistics, and data visualization, delivered bilingually in Tamil and English via progressive video series for self-paced STEM learning.",
+    image: "/tomo-academy-gb8o-vercel-app-1024x768desktop-c714b6.png",
+    link: "https://tomoacademy.site",
+    category: "Education Platform",
+    features: [
+      "C Programming: Basics, systems programming foundations, and practical examples",
+      "Statistics & Probability: Frequency distributions, histograms, polygons, curves, ogives",
+      "Data Visualization: Chart types, dimensions/measures, effective representation techniques",
+      "Bilingual Learning: Tamil and English content for accessibility",
+      "Progressive Videos: Step-by-step tutorials for self-paced learning",
+      "Beginner-Friendly: Designed for STEM learners at any level"
+    ]
+  },
+  {
+    id: 9,
+    title: "cURL Tester - Online cURL Command Testing Tool",
+    description: "cURL Tester by AJ STUDIOZ is a professional online tool for inputting, previewing, sending cURL commands, and viewing responses to assist developers in testing and debugging API requests efficiently.",
+    image: "/v0-aj-studioz-curl-tester-vercel-app-1024x768desktop-d5d1b9.png",
+    link: "https://curl.ajstudioz.co.in",
+    category: "Developer Tool",
+    features: [
+      "cURL Input & Preview: Enter commands like curl -X GET with headers",
+      "Send & Response: Execute requests and display results instantly",
+      "Request History: Tracks previous requests for reference",
+      "Copy Functionality: Quick copy of cURL previews",
+      "API Testing: Efficient debugging tool for developers",
+      "Professional Interface: Clean, intuitive command testing environment"
+    ]
   }
 ];
 
@@ -111,7 +158,9 @@ const categoryColors: { [key: string]: string } = {
   "AI Email Assistant": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   "AI Chat": "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
   "AI Research Tool": "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-  "Staff Portal": "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+  "Staff Portal": "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+  "Education Platform": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
+  "Developer Tool": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300"
 };
 
 export default function ProjectsPage() {
@@ -176,7 +225,7 @@ export default function ProjectsPage() {
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-[#C5A059] mb-2">{projects.length}</div>
+                  <div className="text-4xl font-bold text-[#C5A059] mb-2">9</div>
                   <p className="text-muted-foreground">TOMO Products</p>
                 </div>
                 <div className="text-center">
