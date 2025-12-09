@@ -113,7 +113,7 @@ export default function AboutPage() {
                     <ProfileCard
                       name="SJ KANISH"
                       description="Co-Founder & Technology innovator driving AI excellence. Expert in building scalable solutions and transforming ideas into cutting-edge products for modern enterprises."
-                      image="/AJ.svg"
+                      image="/WhatsApp Image 2025-11-04 at 13.19.15_d23503e7.jpg"
                       isVerified={true}
                       followers={1520}
                       following={145}
