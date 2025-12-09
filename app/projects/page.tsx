@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import TomoProjectCard from "@/components/tomo-project-card";
 import { BookProjectsModal } from "@/components/book-projects-modal";
-import AppIntegrationComponent from "@/components/app-integration";
 
 interface Project {
   id: number;
@@ -333,9 +332,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </div>
-      
-      {/* Integration Services Section */}
-      <AppIntegrationComponent />
     </div>
   );
 }
