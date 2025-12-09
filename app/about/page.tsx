@@ -80,19 +80,57 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Founder Section */}
+            {/* Founders Section */}
             <div className="mb-20">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Meet Our Founder</h2>
-              <div className="flex justify-center">
-                <ProfileCard
-                  name="AJ KAMESH"
-                  description="Visionary entrepreneur and AI technology pioneer. Leading the revolution in conversational AI and machine learning solutions for next-generation businesses."
-                  image="/WhatsApp Image 2025-11-04 at 13.19.15_d23503e7.jpg"
-                  isVerified={true}
-                  followers={2840}
-                  following={180}
-                  enableAnimations={true}
-                />
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Meet Our Founders</h2>
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div className="flex justify-center">
+                  <div className="w-full">
+                    <ProfileCard
+                      name="KAMESH AJ"
+                      description="Founder & Visionary entrepreneur pioneering AI technology. Leading the revolution in conversational AI and machine learning solutions for next-generation businesses."
+                      image="/WhatsApp Image 2025-11-04 at 13.19.15_d23503e7.jpg"
+                      isVerified={true}
+                      followers={2840}
+                      following={180}
+                      enableAnimations={true}
+                    />
+                    <div className="mt-4 text-center">
+                      <a 
+                        href="https://www.ajstudioz.co.in/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-lg hover:bg-muted-foreground transition-colors font-medium text-sm"
+                      >
+                        View Portfolio →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center">
+                  <div className="w-full">
+                    <ProfileCard
+                      name="SJ KANISH"
+                      description="Co-Founder & Technology innovator driving AI excellence. Expert in building scalable solutions and transforming ideas into cutting-edge products for modern enterprises."
+                      image="/AJ.svg"
+                      isVerified={true}
+                      followers={1520}
+                      following={145}
+                      enableAnimations={true}
+                    />
+                    <div className="mt-4 text-center">
+                      <a 
+                        href="https://kanish-sj.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-lg hover:bg-muted-foreground transition-colors font-medium text-sm"
+                      >
+                        View Portfolio →
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
