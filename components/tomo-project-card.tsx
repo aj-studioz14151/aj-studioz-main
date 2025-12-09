@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ExternalLink, Code, Mail, Users, MessageSquare } from 'lucide-react'
+import { ExternalLink, Code, Mail, Users, MessageSquare, Search } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 
@@ -84,6 +84,8 @@ const getCategoryIcon = (category: string) => {
       return <Mail className="w-5 h-5" />;
     case "AI Chat":
       return <MessageSquare className="w-5 h-5" />;
+    case "AI Research Tool":
+      return <Search className="w-5 h-5" />;
     case "Staff Portal":
       return <Users className="w-5 h-5" />;
     default:

@@ -73,6 +73,36 @@ const projects: Project[] = [
       "Secure Access: Role-based permissions with Firebase authentication and audit trails",
       "Automation: Workflows for onboarding, notifications, and reporting"
     ]
+  },
+  {
+    id: 5,
+    title: "Morphic",
+    description: "Morphic is a user-friendly web platform providing AI models and tools for interactive exploration, including model selection like DeepSeek R1, question-answering on topics such as Nvidia's growth and Tesla vs. Rivian comparisons, with features like Search and DeepDive.",
+    image: "/epdi-vercel-app-1024x768desktop-dd33ea.png",
+    link: "https://epdi.vercel.app",
+    category: "AI Research Tool",
+    features: [
+      "Model Selection: Choose from AI models like DeepSeek R1 for queries",
+      "Search & DeepDive: Real-time search and in-depth analysis tools",
+      "Query Examples: 'What is DeepSeek R1?', 'Why is Nvidia growing rapidly?', 'Tesla vs Rivian'",
+      "History & Sidebar: Toggleable sidebar, conversation history, and menu access",
+      "Summary Integration: Generates summaries from sources like arXiv papers"
+    ]
+  },
+  {
+    id: 6,
+    title: "AJ STUDIOZ Internal Dev Tool",
+    description: "AJ STUDIOZ internal dev tool is an AI-powered tool for generating stunning React components, apps, and interfaces using natural language prompts, with streaming support and multiple models including v0, Claude, Grok, and DeepSeek.",
+    image: "/v0-clone-eight-chi-vercel-app-1024x768desktop-269994.png",
+    link: "https://v0-clone-eight-chi.vercel.app/",
+    category: "AI Development Tool",
+    features: [
+      "AI Generation: Create React UIs from descriptions like 'Landing page' or 'Todo app'",
+      "Model Selection: Switch between v0, Claude, Grok, DeepSeek",
+      "Streaming: Real-time code generation output",
+      "Component Export: Generate production-ready React components",
+      "Live Preview: Instant visualization of generated components"
+    ]
   }
 ];
 
@@ -80,6 +110,7 @@ const categoryColors: { [key: string]: string } = {
   "AI Development Tool": "bg-[#C5A059]/10 text-[#C5A059] dark:bg-[#C5A059]/20 dark:text-[#C5A059]",
   "AI Email Assistant": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   "AI Chat": "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
+  "AI Research Tool": "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
   "Staff Portal": "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
 };
 
