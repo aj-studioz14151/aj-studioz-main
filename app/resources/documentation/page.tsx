@@ -96,10 +96,11 @@ export default function MyPage() {
         </ScrollArea>
       </div>
 
-      {/* Main Content - 2 Column Layout */}
-      <div className="flex-1">
-        <ScrollArea className="h-screen">
-          <div className="max-w-5xl mx-auto p-8">
+      {/* Main Content - 3 Column Layout with In-Page Navigation */}
+      <div className="flex-1 flex">
+        <div className="flex-1">
+          <ScrollArea className="h-screen">
+            <div className="max-w-4xl mx-auto p-8">
             {/* Overview Section */}
             {activeSection === "overview" && (
               <div className="space-y-8">
@@ -422,8 +423,131 @@ export default function DocsPage() {
                 </div>
               </div>
             )}
-          </div>
-        </ScrollArea>
+            </div>
+          </ScrollArea>
+        </div>
+
+        {/* In-Page Navigation - Right Sidebar */}
+        <div className="w-80 border-l border-border bg-card/30">
+          <ScrollArea className="h-screen">
+            <div className="p-6">
+              {/* Overview Page Navigation */}
+              {activeSection === "overview" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">AJ STUDIOZ Components</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Overview</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Quick Start</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Installation</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Features</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Installation Page Navigation */}
+              {activeSection === "installation" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">Installation</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Step 1: Choose your package</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Code Blocks Component</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Pricing Component</div>
+                    <div className="text-primary font-medium">Step 2: Run NPX command</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Auto Detection</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Dependencies</div>
+                    <div className="text-primary font-medium">Step 3: Verify installation</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Code Blocks Page Navigation */}
+              {activeSection === "codeblocks" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">Code Blocks Component</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Step 1: Install component</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">NPX installation</div>
+                    <div className="text-primary font-medium">Step 2: Basic usage</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Import component</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Add to page</div>
+                    <div className="text-primary font-medium">Step 3: Live preview</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">JavaScript example</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Python example</div>
+                    <div className="text-primary font-medium">Step 4: Component reference</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Props table</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Usage examples</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Pricing Page Navigation */}
+              {activeSection === "pricing" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">Pricing Cards Component</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Step 1: Install component</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">NPX installation</div>
+                    <div className="text-primary font-medium">Step 2: Basic usage</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Import component</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Set up plans</div>
+                    <div className="text-primary font-medium">Step 3: Live preview</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Individual plan</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Pro plan</div>
+                    <div className="text-primary font-medium">Step 4: Component reference</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Props table</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Plan structure</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Usage Page Navigation */}
+              {activeSection === "usage" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">Usage Guide</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Step 1: Import components</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Code Block imports</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Pricing Card imports</div>
+                    <div className="text-primary font-medium">Step 2: Theme integration</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Layout setup</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Theme provider</div>
+                    <div className="text-primary font-medium">Step 3: Advanced usage</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Examples Page Navigation */}
+              {activeSection === "examples" && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold">Examples</h3>
+                  <div className="space-y-1 text-sm">
+                    <div className="text-primary font-medium">Step 1: Documentation page</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Basic structure</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">API examples</div>
+                    <div className="text-primary font-medium">Step 2: Advanced examples</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Custom integration</div>
+                    <div className="text-muted-foreground hover:text-foreground cursor-pointer pl-3">Multi-language support</div>
+                    <div className="text-primary font-medium">Next steps</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Quick Actions */}
+              <div className="mt-8 pt-6 border-t border-border">
+                <div className="space-y-3">
+                  <button className="w-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <ExternalLink className="h-3 w-3" />
+                    Copy page URL
+                  </button>
+                  <button className="w-full flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <ExternalLink className="h-3 w-3" />
+                    Share feedback
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ScrollArea>
+        </div>
       </div>
 
       <Toaster />
