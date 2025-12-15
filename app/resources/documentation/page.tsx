@@ -111,21 +111,7 @@ fetchUserData(123).then(user => {
               );
             })}
             
-            <div className="pt-4 border-t border-border mt-4">
-              <div className="text-xs font-medium text-muted-foreground mb-2 px-3">RESOURCES</div>
-              <Link href="/resources/codeblocks" className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground">
-                <Code className="h-4 w-4" />
-                Code Blocks Demo
-              </Link>
-              <Link href="/resources/pricing" className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground">
-                <Package className="h-4 w-4" />
-                Pricing Demo
-              </Link>
-              <a href="https://github.com/kamesh6592-cell" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-3 py-2 text-sm rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground">
-                <ExternalLink className="h-4 w-4" />
-                GitHub
-              </a>
-            </div>
+
           </div>
         </ScrollArea>
       </div>
@@ -428,89 +414,321 @@ const users = await response.json();
           </ScrollArea>
         </div>
 
-        {/* Right Preview Panel */}
+        {/* Right Reference Panel */}
         <div className="w-80 border-l border-border bg-card/30">
           <ScrollArea className="h-screen">
             <div className="p-6">
-              <div className="text-sm font-medium text-muted-foreground mb-4">LIVE PREVIEW</div>
-              
-              {(activeSection === "codeblocks" || activeSection === "examples" || activeSection === "usage") && (
-                <div className="space-y-4">
+              {/* Reference Section for Code Blocks */}
+              {(activeSection === "codeblocks") && (
+                <div className="space-y-6">
                   <div>
-                    <div className="text-xs text-muted-foreground mb-2">Code Block Example</div>
-                    <CodeBlock language="javascript" elementKey="preview-js">
-{`// AJ STUDIOZ Example
-const message = 'Hello World!';
-console.log(message);
-
-// Features:
-// ✅ Syntax highlighting  
-// ✅ Copy to clipboard
-// ✅ Theme support`}
-                    </CodeBlock>
-                  </div>
-                  
-                  <div>
-                    <div className="text-xs text-muted-foreground mb-2">Python Example</div>
-                    <CodeBlock language="python" elementKey="preview-python">
-{`# Python Example
-def greet(name):
-    return f"Hello, {name}!"
-
-message = greet("AJ STUDIOZ")
-print(message)`}
-                    </CodeBlock>
-                  </div>
-                </div>
-              )}
-
-              {(activeSection === "pricing" || activeSection === "overview") && (
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-xs text-muted-foreground mb-2">Pricing Card Preview</div>
-                    <PricingCard plan={INDIVIDUAL_PLANS[1]} isYearly={false} />
-                  </div>
-                </div>
-              )}
-
-              {activeSection === "installation" && (
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-xs text-muted-foreground mb-2">Installation Output</div>
-                    <div className="bg-muted p-3 rounded-lg text-xs font-mono space-y-1">
-                      <div className="text-green-600">✓ Dependencies installed</div>
-                      <div className="text-green-600">✓ Component files created</div>
-                      <div className="text-green-600">✓ CSS updated</div>
-                      <div className="text-blue-600">🎉 Installation complete!</div>
+                    <h3 className="text-lg font-semibold mb-4">Reference</h3>
+                    <div className="space-y-4">
+                      <div className="border border-border rounded-lg overflow-hidden">
+                        <div className="grid grid-cols-3 gap-4 p-3 bg-muted/50 text-xs font-medium text-muted-foreground border-b border-border">
+                          <div>Name</div>
+                          <div>Description</div>
+                          <div>Default</div>
+                        </div>
+                        <div className="space-y-0">
+                          <div className="grid grid-cols-3 gap-4 p-3 text-xs border-b border-border">
+                            <code className="text-primary">language</code>
+                            <span className="text-muted-foreground">string</span>
+                            <span>-</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4 p-3 text-xs border-b border-border">
+                            <code className="text-primary">children</code>
+                            <span className="text-muted-foreground">string</span>
+                            <span>-</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4 p-3 text-xs">
+                            <code className="text-primary">elementKey</code>
+                            <span className="text-muted-foreground">string</span>
+                            <span>-</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Supported Languages</h4>
+                    <div className="grid grid-cols-1 gap-2 text-xs">
+                      {['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'SQL', 'HTML', 'CSS', 'JSON'].map(lang => (
+                        <div key={lang} className="flex items-center gap-2 p-2 bg-muted rounded">
+                          <div className="h-2 w-2 bg-primary rounded-full"></div>
+                          <code>{lang.toLowerCase()}</code>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Reference Section for Pricing */}
+              {(activeSection === "pricing") && (
+                <div className="space-y-6">
                   <div>
-                    <div className="text-xs text-muted-foreground mb-2">Quick Test</div>
-                    <CodeBlock language="bash" elementKey="preview-test">
-                      npm run dev
+                    <h3 className="text-lg font-semibold mb-4">Reference</h3>
+                    <div className="space-y-4">
+                      <div className="border border-border rounded-lg overflow-hidden">
+                        <div className="grid grid-cols-3 gap-4 p-3 bg-muted/50 text-xs font-medium text-muted-foreground border-b border-border">
+                          <div>Name</div>
+                          <div>Description</div>
+                          <div>Default</div>
+                        </div>
+                        <div className="space-y-0">
+                          <div className="grid grid-cols-3 gap-4 p-3 text-xs border-b border-border">
+                            <code className="text-primary">plan</code>
+                            <span className="text-muted-foreground">PricingPlan</span>
+                            <span>-</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4 p-3 text-xs">
+                            <code className="text-primary">isYearly</code>
+                            <span className="text-muted-foreground">boolean</span>
+                            <span>false</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Plan Structure</h4>
+                    <CodeBlock language="typescript" elementKey="plan-structure">
+{`interface PricingPlan {
+  id: string;
+  name: string;
+  price: string;
+  yearlyPrice?: string;
+  features: string[];
+  popular?: boolean;
+}`}
                     </CodeBlock>
                   </div>
                 </div>
               )}
-              
-              <div className="pt-6 border-t border-border mt-6">
-                <div className="text-xs font-medium text-muted-foreground mb-3">QUICK LINKS</div>
-                <div className="space-y-2">
-                  <Link href="/resources/codeblocks" className="flex items-center gap-2 text-sm hover:text-primary">
-                    <Code className="h-3 w-3" />
-                    Code Blocks Demo
-                  </Link>
-                  <Link href="/resources/pricing" className="flex items-center gap-2 text-sm hover:text-primary">
-                    <Package className="h-3 w-3" />
-                    Pricing Demo
-                  </Link>
-                  <a href="https://github.com/kamesh6592-cell" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-primary">
-                    <ExternalLink className="h-3 w-3" />
-                    View Source
-                  </a>
+
+              {/* Usage Examples */}
+              {(activeSection === "usage") && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Examples</h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Custom composition</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Custom code blocks can be created by using <code className="bg-muted px-1 rounded text-primary">CodeBlock</code> component composition.
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      <code className="bg-muted px-1 rounded text-primary">CodeBlock</code> can be used to render code within the base container, with custom markup around it.
+                    </p>
+
+                    <CodeBlock language="typescript" elementKey="custom-composition">
+{`interface Point {
+  x: number;
+  y: number;
+}
+
+function printPoint(p: Point) {
+  console.log('Point(' + p.x + ', ' + p.y + ')');
+}`}
+                    </CodeBlock>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">With Custom Header</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      In this example, a header is being added above the code block with a bespoke <code className="bg-muted px-1 rounded text-primary">CopyButton</code>.
+                    </p>
+                    
+                    <CodeBlock language="javascript" elementKey="with-header">
+{`// Advanced usage with custom wrapper
+export function DocumentationCode({ title, children }) {
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between">
+        <h4 className="font-mono text-sm">{title}</h4>
+        <CopyButton text={children} />
+      </div>
+      <CodeBlock language="javascript">
+        {children}
+      </CodeBlock>
+    </div>
+  );
+}`}
+                    </CodeBlock>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* Examples Section */}
+              {(activeSection === "examples") && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Examples</h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">API Documentation</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Perfect for API documentation with request/response examples.
+                    </p>
+                    
+                    <CodeBlock language="javascript" elementKey="api-docs">
+{`// Fetch user data
+const response = await fetch('/api/users/123');
+const user = await response.json();
+
+// Response format
+{
+  "id": 123,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "createdAt": "2024-01-15T10:30:00Z"
+}`}
+                    </CodeBlock>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Tutorial Content</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Interactive code examples for tutorials and learning materials.
+                    </p>
+                    
+                    <CodeBlock language="python" elementKey="tutorial">
+{`# Machine Learning Example
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+# Load and prepare data
+X, y = load_dataset()
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Train model
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)`}
+                    </CodeBlock>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Configuration Files</h4>
+                    <CodeBlock language="json" elementKey="config">
+{`{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}`}
+                    </CodeBlock>
+                  </div>
+                </div>
+              )}
+
+              {/* Installation Reference */}
+              {activeSection === "installation" && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Installation Output</h3>
+                    <div className="space-y-4">
+                      <div className="bg-muted p-3 rounded-lg text-xs font-mono space-y-1">
+                        <div className="text-green-600">✓ Dependencies installed</div>
+                        <div className="text-green-600">✓ Component files created</div>
+                        <div className="text-green-600">✓ CSS updated</div>
+                        <div className="text-blue-600">🎉 Installation complete!</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Project Structure</h4>
+                    <div className="bg-muted p-3 rounded-lg text-xs font-mono space-y-1">
+                      <div>components/</div>
+                      <div className="ml-4">├── ui/</div>
+                      <div className="ml-6">│   ├── code-block.tsx</div>
+                      <div className="ml-6">│   ├── toaster.tsx</div>
+                      <div className="ml-6">│   └── theme-toggle.tsx</div>
+                      <div className="ml-4">├── pricing/</div>
+                      <div className="ml-6">│   ├── pricing-card.tsx</div>
+                      <div className="ml-6">│   └── constants.ts</div>
+                      <div className="ml-4">└── codeblocks/</div>
+                      <div className="ml-6">    └── theme-provider.tsx</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Overview Reference */}
+              {activeSection === "overview" && (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-4">Quick Reference</h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2">Code Blocks</h4>
+                      <CodeBlock language="bash" elementKey="overview-codeblocks">
+                        npx @ajstudioz14151/codeblocks-component@1.1.0 add
+                      </CodeBlock>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2">Pricing Cards</h4>
+                      <CodeBlock language="bash" elementKey="overview-pricing">
+                        npx @ajstudioz14151/pricing-component@1.2.0 add
+                      </CodeBlock>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="text-sm font-semibold">Component Features</h4>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex items-center gap-2 p-2 bg-muted rounded">
+                        <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                        <span>TypeScript Support</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-muted rounded">
+                        <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
+                        <span>Theme Integration</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-muted rounded">
+                        <div className="h-2 w-2 bg-purple-500 rounded-full"></div>
+                        <span>Copy Functionality</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-muted rounded">
+                        <div className="h-2 w-2 bg-orange-500 rounded-full"></div>
+                        <span>Responsive Design</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </ScrollArea>
         </div>
