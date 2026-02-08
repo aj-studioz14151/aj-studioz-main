@@ -112,10 +112,8 @@ export default function TomoProjectCard({
 
   return (
     <div
-      className="relative block no-underline cursor-pointer group transition-all duration-300 overflow-hidden"
+      className="relative block no-underline cursor-pointer group transition-all duration-300 overflow-hidden bg-accent border border-border hover:border-muted"
       style={{
-        backgroundColor: '#170D27',
-        border: '1px solid #271E37',
         borderRadius: '30px',
         padding: '6px',
         animationDelay: `${index * 150}ms`
@@ -125,16 +123,10 @@ export default function TomoProjectCard({
       onClick={handleClick}
     >
       <div className="px-4 pt-3 pb-3 relative">
-        <div
-          className="text-lg font-medium leading-tight mb-1"
-          style={{ color: '#ffffff' }}
-        >
+        <div className="text-foreground text-lg font-medium leading-tight mb-1 group-hover:text-primary transition-colors duration-300">
           {project.title}
         </div>
-        <div
-          className="font-normal text-xs"
-          style={{ color: '#B19EEF' }}
-        >
+        <div className="text-muted-foreground font-normal text-xs">
           {project.category}
         </div>
 
@@ -142,15 +134,9 @@ export default function TomoProjectCard({
           <button
             aria-label="Remove from favorites"
             className={cn(
-              'absolute top-2 right-2 rounded-full p-2 transition-all duration-150',
+              'absolute top-2 right-2 rounded-full p-2 transition-all duration-150 bg-secondary text-muted-foreground hover:bg-destructive hover:text-destructive-foreground',
               isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             )}
-            style={{
-              backgroundColor: '#1E1430',
-              color: '#B19EEF'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#271E37'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1E1430'}
             onClick={handleDelete}
           >
             <Trash2 className="w-4 h-4" />
@@ -161,32 +147,24 @@ export default function TomoProjectCard({
           <button
             aria-label={liked ? 'Remove from favorites' : 'Add to favorites'}
             className={cn(
-              'absolute top-2 right-2 rounded-full p-2 transition-all duration-150',
+              'absolute top-2 right-2 rounded-full p-2 transition-all duration-150 bg-secondary text-muted-foreground hover:bg-muted hover:text-foreground',
               isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             )}
-            style={{
-              backgroundColor: '#1E1430',
-              color: '#B19EEF'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#271E37'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1E1430'}
             onClick={handleToggleLike}
           >
             <Heart
-              className="w-4 h-4"
-              style={{
-                fill: liked ? '#B19EEF' : 'none',
-                stroke: '#B19EEF'
-              }}
+              className={cn(
+                'w-4 h-4 transition-all duration-300',
+                liked ? 'fill-destructive stroke-destructive' : 'stroke-current'
+              )}
             />
           </button>
         )}
         </div>
 
       <div
-        className="h-[200px] overflow-hidden relative"
+        className="h-[200px] overflow-hidden relative bg-background"
         style={{
-          backgroundColor: '#000000',
           borderRadius: '24px'
         }}
       >
@@ -211,8 +189,8 @@ export default function TomoProjectCard({
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: '#170D27' }}>
-            <span className="text-4xl" style={{ color: '#B19EEF' }}>📦</span>
+          <div className="w-full h-full flex items-center justify-center bg-muted">
+            <span className="text-muted-foreground text-4xl">📦</span>
           </div>
         )}
       </div>
