@@ -142,6 +142,7 @@ const ProjectCard = ({ category, title, description, link, tags, videoUrl, image
             <span className="text-[#B19EEF] text-4xl">📦</span>
           </div>
         )}
+        </div>
       </div>
     </div>
   )

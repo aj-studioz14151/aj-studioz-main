@@ -198,6 +198,7 @@ export default function TomoProjectCard({
             <span className="text-[#B19EEF] text-4xl">📦</span>
           </div>
         )}
+        </div>
       </div>
     </div>
   )
