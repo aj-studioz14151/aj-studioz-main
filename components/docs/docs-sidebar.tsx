@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -40,10 +40,25 @@ const navigation: NavItem[] = [
 
 export function DocsSidebar() {
   const pathname = usePathname()
+  const [activeHash, setActiveHash] = useState('')
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     'Getting Started': true,
     'Components': true
   })
+
+  useEffect(() => {
+    // Only run in browser
+    if (typeof window !== 'undefined') {
+      setActiveHash(window.location.hash)
+      
+      const handleHashChange = () => {
+        setActiveHash(window.location.hash)
+      }
+      
+      window.addEventListener('hashchange', handleHashChange)
+      return () => window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
 
   const toggleSection = (title: string) => {
     setOpenSections(prev => ({
@@ -72,20 +87,23 @@ export function DocsSidebar() {
                 </button>
                 {openSections[section.title] && (
                   <div className="ml-3 mt-1 space-y-1 border-l-2 border-border pl-3">
-                    {section.children.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href || '#'}
-                        className={cn(
-                          'block px-3 py-1.5 text-sm rounded-lg transition-colors',
-                          pathname === item.href || location.hash === item.href?.split('#')[1]
-                            ? 'text-primary bg-accent font-medium'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                        )}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
+                    {section.children.map((item) => {
+                      const itemHash = item.href?.includes('#') ? '#' + item.href.split('#')[1] : ''
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href || '#'}
+                          className={cn(
+                            'block px-3 py-1.5 text-sm rounded-lg transition-colors',
+                            pathname === item.href || (itemHash && activeHash === itemHash)
+                              ? 'text-primary bg-accent font-medium'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                          )}
+                        >
+                          {item.title}
+                        </Link>
+                      )
+                    })}
                   </div>
                 )}
               </>
