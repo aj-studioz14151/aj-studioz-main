@@ -1,3 +1,5 @@
+'use client'
+
 import ComponentsLayout from '@/components/layout/components-layout'
 import { ComponentTabs, PreviewContainer } from '@/components/layout/component-tabs'
 import { CodeBlock } from '@/components/ui/code-block'
