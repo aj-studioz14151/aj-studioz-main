@@ -1,5 +1,3 @@
-'use client'
-
 import { notFound } from 'next/navigation'
 import { componentMetadata } from '@/lib/components-metadata'
 import { ComponentTabs } from '@/components/component-tabs'
