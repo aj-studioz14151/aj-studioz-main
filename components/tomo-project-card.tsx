@@ -112,26 +112,22 @@ export default function TomoProjectCard({
 
   return (
     <div
-      className="relative block rounded-[32px] p-[1px] no-underline cursor-pointer group"
+      className="relative block rounded-xl border border-border bg-accent no-underline cursor-pointer group hover:border-muted transition-all duration-300 overflow-hidden"
       style={{
-        animationDelay: `${index * 150}ms`,
-        background: isHovered 
-          ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))'
-          : 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2))'
+        animationDelay: `${index * 150}ms`
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <div className="relative bg-gradient-to-br from-[#0A0A0F] via-[#0F0F14] to-[#0A0A0F] rounded-[31px] overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]">
-        {/* Glass morphism overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+      {/* Subtle gradient effect on hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
         
         <div className="px-5 pt-4 pb-3 relative">
-          <div className="text-white text-lg font-semibold leading-tight mb-1 tracking-tight">
+          <div className="text-foreground text-lg font-semibold leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors duration-300">
             {project.title}
           </div>
-          <div className="text-purple-300/70 font-medium text-xs uppercase tracking-wider">
+          <div className="text-muted-foreground font-medium text-xs uppercase tracking-wider">
             {project.category}
           </div>
 
@@ -139,7 +135,7 @@ export default function TomoProjectCard({
             <button
               aria-label="Remove from favorites"
               className={cn(
-                'absolute top-3 right-3 rounded-full backdrop-blur-xl bg-white/5 p-2 border border-white/10 text-purple-300 transition-all duration-300 hover:bg-white/10 hover:border-red-400/50 hover:scale-110 hover:text-red-400',
+                'absolute top-3 right-3 rounded-full bg-secondary p-2 border border-border text-muted-foreground transition-all duration-300 hover:bg-destructive hover:text-destructive-foreground hover:border-destructive hover:scale-110',
                 isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               )}
               onClick={handleDelete}
@@ -152,7 +148,7 @@ export default function TomoProjectCard({
             <button
               aria-label={liked ? 'Remove from favorites' : 'Add to favorites'}
               className={cn(
-                'absolute top-3 right-3 rounded-full backdrop-blur-xl bg-white/5 p-2 border border-white/10 text-purple-300 transition-all duration-300 hover:bg-white/10 hover:border-purple-400/50 hover:scale-110',
+                'absolute top-3 right-3 rounded-full bg-secondary p-2 border border-border text-muted-foreground transition-all duration-300 hover:bg-muted hover:text-foreground hover:scale-110',
                 isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               )}
               onClick={handleToggleLike}
@@ -160,17 +156,17 @@ export default function TomoProjectCard({
               <Heart
                 className={cn(
                   'w-4 h-4 transition-all duration-300',
-                  liked ? 'fill-purple-400 stroke-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]' : 'stroke-purple-300'
+                  liked ? 'fill-destructive stroke-destructive' : 'stroke-current'
                 )}
               />
             </button>
           )}
         </div>
 
-        <div className="h-[200px] bg-black/50 rounded-[24px] overflow-hidden mx-[6px] mb-[6px] relative">
+        <div className="h-[200px] bg-background rounded-lg overflow-hidden mx-2 mb-2 relative border border-border">
           {/* Shine effect on hover */}
           <div className={cn(
-            "absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-1000",
+            "absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full transition-transform duration-1000",
             isHovered && "translate-x-full"
           )} />
           
@@ -194,12 +190,11 @@ export default function TomoProjectCard({
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#271E37] to-[#170D27]">
-            <span className="text-[#B19EEF] text-4xl">📦</span>
+          <div className="w-full h-full flex items-center justify-center bg-muted">
+            <span className="text-muted-foreground text-4xl">📦</span>
           </div>
         )}
         </div>
-      </div>
     </div>
   )
 }
