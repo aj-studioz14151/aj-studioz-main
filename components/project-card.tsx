@@ -74,21 +74,14 @@ const ProjectCard = ({ category, title, description, link, tags, videoUrl, image
     <div
       className="relative block rounded-[32px] p-[1px] no-underline cursor-pointer group"
       style={{
-        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))',
-        backgroundSize: '200% 200%',
-        animation: isHovered ? 'gradient-border 3s ease infinite' : 'none'
+        background: isHovered 
+          ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))'
+          : 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2))'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <style jsx>{`
-        @keyframes gradient-border {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
-      
       <div className="relative bg-gradient-to-br from-[#0A0A0F] via-[#0F0F14] to-[#0A0A0F] rounded-[31px] overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]">
         {/* Glass morphism overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
