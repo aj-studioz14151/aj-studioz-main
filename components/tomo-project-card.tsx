@@ -123,10 +123,10 @@ export default function TomoProjectCard({
       onClick={handleClick}
     >
       <div className="px-4 pt-3 pb-3 relative">
-        <div className="text-foreground text-lg font-medium leading-tight mb-1 group-hover:text-primary transition-colors duration-300">
+        <div className="text-foreground text-lg font-medium leading-tight mb-1 group-hover:text-primary transition-colors duration-300 line-clamp-1">
           {project.title}
         </div>
-        <div className="text-muted-foreground font-normal text-xs">
+        <div className="text-muted-foreground font-normal text-xs line-clamp-1">
           {project.category}
         </div>
 
