@@ -72,45 +72,62 @@ const ProjectCard = ({ category, title, description, link, tags, videoUrl, image
 
   return (
     <div
-      className="relative block rounded-xl border border-border bg-accent no-underline cursor-pointer group hover:border-muted transition-all duration-300 overflow-hidden"
+      className="relative block no-underline cursor-pointer group transition-all duration-300 overflow-hidden"
+      style={{
+        backgroundColor: '#170D27',
+        border: '1px solid #271E37',
+        borderRadius: '30px',
+        padding: '6px'
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      {/* Subtle gradient effect on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
-        
-      <div className="px-5 pt-4 pb-3 relative">
-        <div className="text-foreground text-lg font-semibold leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors duration-300">
+      <div className="px-4 pt-3 pb-3 relative">
+        <div
+          className="text-lg font-medium leading-tight mb-1"
+          style={{ color: '#ffffff' }}
+        >
           {title}
         </div>
-        <div className="text-muted-foreground font-medium text-xs uppercase tracking-wider">
+        <div
+          className="font-normal text-xs"
+          style={{ color: '#B19EEF' }}
+        >
           {category}
         </div>
 
         <button
           aria-label={liked ? 'Remove from favorites' : 'Add to favorites'}
           className={cn(
-            'absolute top-3 right-3 rounded-full bg-secondary p-2 border border-border text-muted-foreground transition-all duration-300 hover:bg-muted hover:text-foreground hover:scale-110',
+            'absolute top-2 right-2 rounded-full p-2 transition-all duration-150',
             isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           )}
+          style={{
+            backgroundColor: '#1E1430',
+            color: '#B19EEF'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#271E37'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1E1430'}
           onClick={handleToggleLike}
         >
           <Heart
-            className={cn(
-              'w-4 h-4 transition-all duration-300',
-              liked ? 'fill-destructive stroke-destructive' : 'stroke-current'
-            )}
+            className="w-4 h-4"
+            style={{
+              fill: liked ? '#B19EEF' : 'none',
+              stroke: '#B19EEF'
+            }}
           />
         </button>
       </div>
 
-      <div className="h-[200px] bg-background rounded-lg overflow-hidden mx-2 mb-2 relative border border-border">
-          {/* Shine effect on hover */}
-          <div className={cn(
-            "absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full transition-transform duration-1000",
-            isHovered && "translate-x-full"
-          )} />
+      <div
+        className="h-[200px] overflow-hidden relative"
+        style={{
+          backgroundColor: '#000000',
+          borderRadius: '24px'
+        }}
+      >
           
           {videoUrl ? (
           <video
@@ -132,12 +149,12 @@ const ProjectCard = ({ category, title, description, link, tags, videoUrl, image
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-muted">
-            <span className="text-muted-foreground text-4xl">📦</span>
+          <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: '#170D27' }}>
+            <span className="text-4xl" style={{ color: '#B19EEF' }}>📦</span>
           </div>
         )}
-        </div>
       </div>
+    </div>
   )
 }
 
