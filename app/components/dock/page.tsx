@@ -251,7 +251,11 @@ function DockLabel({
     </>
   );
 
-  const codeContent = <CodeBlock code={codeString} language="tsx" />;
+  const codeContent = (
+    <CodeBlock language="tsx" elementKey="dock-code">
+      {codeString}
+    </CodeBlock>
+  );
 
   const contributeContent = (
     <div className="bg-[#170D27] rounded-[24px] border border-[#271E37] p-8">
