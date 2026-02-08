@@ -72,38 +72,60 @@ const ProjectCard = ({ category, title, description, link, tags, videoUrl, image
 
   return (
     <div
-      className="relative block bg-[#170D27] border border-[#271E37] rounded-[30px] p-[6px] no-underline transition-all duration-250 hover:saturate-150 hover:no-underline cursor-pointer group"
+      className="relative block rounded-[32px] p-[1px] no-underline cursor-pointer group"
+      style={{
+        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3))',
+        backgroundSize: '200% 200%',
+        animation: isHovered ? 'gradient-border 3s ease infinite' : 'none'
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <div className="px-4 pt-3 pb-3 relative">
-        <div className="text-white text-base font-medium leading-[1.4]">
-          {title}
-        </div>
-        <div className="text-[#B19EEF] font-normal text-xs">
-          {category}
-        </div>
+      <style jsx>{`
+        @keyframes gradient-border {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
+      
+      <div className="relative bg-gradient-to-br from-[#0A0A0F] via-[#0F0F14] to-[#0A0A0F] rounded-[31px] overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]">
+        {/* Glass morphism overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+        
+        <div className="px-5 pt-4 pb-3 relative">
+          <div className="text-white text-lg font-semibold leading-tight mb-1 tracking-tight">
+            {title}
+          </div>
+          <div className="text-purple-300/70 font-medium text-xs uppercase tracking-wider">
+            {category}
+          </div>
 
-        <button
-          aria-label={liked ? 'Remove from favorites' : 'Add to favorites'}
-          className={cn(
-            'absolute top-2 right-2 rounded-full bg-[#1E1430] p-2 text-[#B19EEF] transition-opacity duration-150 hover:bg-[#271E37]',
-            isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          )}
-          onClick={handleToggleLike}
-        >
-          <Heart
+          <button
+            aria-label={liked ? 'Remove from favorites' : 'Add to favorites'}
             className={cn(
-              'w-4 h-4 transition-colors',
-              liked ? 'fill-[#B19EEF] stroke-[#B19EEF]' : 'stroke-[#B19EEF]'
+              'absolute top-3 right-3 rounded-full backdrop-blur-xl bg-white/5 p-2 border border-white/10 text-purple-300 transition-all duration-300 hover:bg-white/10 hover:border-purple-400/50 hover:scale-110',
+              isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             )}
-          />
-        </button>
-      </div>
+            onClick={handleToggleLike}
+          >
+            <Heart
+              className={cn(
+                'w-4 h-4 transition-all duration-300',
+                liked ? 'fill-purple-400 stroke-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]' : 'stroke-purple-300'
+              )}
+            />
+          </button>
+        </div>
 
-      <div className="h-[200px] bg-black rounded-[24px] overflow-hidden">
-        {videoUrl ? (
+        <div className="h-[200px] bg-black/50 rounded-[24px] overflow-hidden mx-[6px] mb-[6px] relative">
+          {/* Shine effect on hover */}
+          <div className={cn(
+            "absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-1000",
+            isHovered && "translate-x-full"
+          )} />
+          
+          {videoUrl ? (
           <video
             ref={videoRef}
             loop
