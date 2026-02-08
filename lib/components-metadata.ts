@@ -12,24 +12,24 @@ export interface ComponentMetadata {
   variants?: Variant[]
 }
 
-export type Category = 'Animations' | 'Backgrounds' | 'Components' | 'TextAnimations'
+export type Category = 'Animations' | 'Backgrounds' | 'UI' | 'TextAnimations'
 export type Variant = 'JS-CSS' | 'JS-TW' | 'TS-CSS' | 'TS-TW'
 
 export const componentMetadata: Record<string, ComponentMetadata> = {
-  // Components
-  'Components/Dock': {
+  // UI Components
+  'UI/Dock': {
     videoUrl: '/assets/video/dock.webm',
     description: 'macOS-style dock with spring physics, hover magnification, and smooth transitions.',
-    category: 'Components',
+    category: 'UI',
     name: 'Dock',
     docsUrl: '/components/dock',
     tags: ['navigation', 'menu', 'interactive'],
     variants: ['TS-TW']
   },
-  'Components/ProjectCards': {
+  'UI/ProjectCards': {
     videoUrl: '/assets/video/project-cards.webm',
     description: 'Beautiful project showcase cards with hover effects and video preview support.',
-    category: 'Components',
+    category: 'UI',
     name: 'Project Cards',
     docsUrl: '/components/project-cards',
     tags: ['cards', 'showcase', 'portfolio'],
@@ -179,7 +179,7 @@ export const CATEGORIES = [
     subcategories: ['Introduction', 'Installation', 'Configuration', 'Index']
   },
   {
-    name: 'Components',
+    name: 'UI',
     subcategories: ['Dock', 'Project Cards', 'Pricing Cards', 'Code Blocks']
   },
   {

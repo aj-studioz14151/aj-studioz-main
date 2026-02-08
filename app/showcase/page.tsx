@@ -31,7 +31,7 @@ export default function ShowcasePage() {
   }, [allComponents, searchTerm, selectedCategory])
 
   const categoryIcons = {
-    'Components': Layout,
+    'UI': Layout,
     'Animations': Zap,
     'Backgrounds': Palette,
     'TextAnimations': Sparkles
@@ -82,7 +82,7 @@ export default function ShowcasePage() {
             >
               All Components
             </button>
-            {['Components', 'Animations', 'Backgrounds', 'TextAnimations'].map((category) => {
+            {['UI', 'Animations', 'Backgrounds', 'TextAnimations'].map((category) => {
               const Icon = categoryIcons[category as keyof typeof categoryIcons]
               const count = allComponents.filter(c => c.category === category).length
               

@@ -14,7 +14,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const pathname = usePathname()
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
     'Get Started': true,
-    'Components': true
+    'UI': true
   })
   const [activeLinePosition, setActiveLinePosition] = useState<number | null>(null)
   const [hoverLinePosition, setHoverLinePosition] = useState<number | null>(null)
